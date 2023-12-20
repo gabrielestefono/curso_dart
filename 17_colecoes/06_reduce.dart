@@ -3,7 +3,7 @@ void main(){
 }
 
 listaReduce(){
-    print("17.6.0 - List Map");
+    print("17.6.0 - List Reduce");
     List<int> numeros_pares = List.generate(6, (index) => index * 2);
     print(numeros_pares);
     int resultado = numeros_pares.reduce((value, element) => value + element);
