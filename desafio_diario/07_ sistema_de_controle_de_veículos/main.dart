@@ -39,6 +39,10 @@ Tarefa:
 Implemente o sistema conforme os requisitos acima. Teste as funcionalidades criando várias instâncias de diferentes tipos de veículos e utilizando os métodos do GerenciadorDeVeiculos, além de testar a sobrescrita de métodos, a implementação da interface e o uso do mixin.
 */
 
+import 'GerenciadorVeiculos.dart';
+
 void main(){
-    print("Só pra falar que eu comecei o desafio.");
+    print("Sistema de controle de veículos");
+    GerenciadorVeiculos gerenciador = GerenciadorVeiculos.instance;
+    gerenciador.adicionarVeiculo("Fiat", "Uno", "2000");
 }
