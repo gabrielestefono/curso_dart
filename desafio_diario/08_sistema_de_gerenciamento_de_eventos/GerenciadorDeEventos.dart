@@ -36,48 +36,47 @@ class GerenciadorDeEventos{
                     }
                     List<Evento> lista_eventos_buscados = lista_de_eventos.where((element) => element.id == evento_buscado_int).toList();
                     Evento evento_buscado = lista_eventos_buscados[0];
-                    print("Resumo do evento:");
-                    print("Nome: ${evento_buscado.nome}");
-                    print("Data: ${evento_buscado.data}");
-                    print("Id: ${evento_buscado.id}");
-                    print("Participantes: Criar essa função ainda");
-                    print("Programação: Criar essa função ainda");
-                    print("O que deseja editar?");
-                    print("1 - Nome");
-                    print("2 - Data");
-                    print("3 - Participantes");
-                    print("4 - Programação");
-                    print("5 - Voltar");
-                    String? acao = stdin.readLineSync();
-                    if(acao != null && acao != ''){
-                        try{
-                            int acao_int = int.parse(acao);
-                            switch (acao_int) {
-                                case 1:
-                                    evento_buscado.mudarNome(evento_buscado);
-                                    break;
-                                case 2:
-                                    evento_buscado.mudarData(evento_buscado);
-                                    break;
-                                case 3:
-                                    evento_buscado.mudarParticipantes(evento_buscado);
-                                    break;
-                                case 4:
-                                    evento_buscado.mudarProgramacao(evento_buscado);
-                                    break;
-                                case 5:
-                                    break;
-                              default:
-                                    print("Ocorreu um erro, por favor, tente novamente!");
-                                    print("Para sair, digite 0");
-                                    print("Por favor, digite o id do evento:");
-                                    continue;
+                    loopInterno:
+                    while(true){
+                        print("O que deseja editar?");
+                        print("1 - Nome");
+                        print("2 - Data");
+                        print("3 - Participantes");
+                        print("4 - Programação");
+                        print("5 - Voltar");
+                        String? acao = stdin.readLineSync();
+                        if(acao != null && acao != ''){
+                            try{
+                                int acao_int = int.parse(acao);
+                                switch (acao_int) {
+                                    case 1:
+                                        evento_buscado.mudarNome(evento_buscado);
+                                        break;
+                                    case 2:
+                                        evento_buscado.mudarData(evento_buscado);
+                                        break;
+                                    case 3:
+                                        evento_buscado.mudarParticipantes(evento_buscado);
+                                        break;
+                                    case 4:
+                                        evento_buscado.mudarProgramacao(evento_buscado);
+                                        break;
+                                    case 5:
+                                        print("Para sair, digite 0");
+                                        print("Por favor, digite o id do evento: ");
+                                        break loopInterno;
+                                default:
+                                        print("Ocorreu um erro, por favor, tente novamente!");
+                                        print("Para sair, digite 0");
+                                        print("Por favor, digite o id do evento:");
+                                        continue;
+                                }
+                            }catch(e){
+                                print("Ocorreu um erro, por favor, tente novamente!");
+                                print("Para sair, digite 0");
+                                print("Por favor, digite o id do evento:");
+                                continue;
                             }
-                        }catch(e){
-                            print("Ocorreu um erro, por favor, tente novamente!");
-                            print("Para sair, digite 0");
-                            print("Por favor, digite o id do evento:");
-                            continue;
                         }
                     }
                 }catch(e){
