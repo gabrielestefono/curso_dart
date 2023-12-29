@@ -1,13 +1,14 @@
-/*Classe Programacao:
-
-Atributos: título, descrição, horário.
-Construtor*/
-
 class Programacao{
-    String nome;
-    String horario;
+    String titulo;
     String descricao;
-    String tipo;
+    String horario;
+    String? tipo;
 
-    Programacao(this.nome, this.horario, this.descricao, this.tipo);
+    Programacao.palestra(this.titulo, this.horario, this.descricao){
+        this.tipo = "Palestra";
+    }
+
+    Programacao.workshop(this.titulo, this.horario, this.descricao){
+        this.tipo = "Workshop";
+    }
 }
