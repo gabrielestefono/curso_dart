@@ -76,26 +76,35 @@ class GerenciaEvento{
         }else{
             eventos.forEach((element) { print("Id: ${eventos.indexOf(element)} - Nome: ${element.nome}"); });
             print("Digite o id do evento que deseja editar: ");
+            Evento evento = escolherEvento();
             while(true){
-                String? id = stdin.readLineSync();
-                if(id != null && id != ''){
-                    try{
-                        int id_int = int.parse(id);
-                        dynamic evento = eventos[id_int];
-                        print("O que deseja editar?");
-                        print("1 - Nome");
-                        print("2 - Data");
-                        print("3 - Participantes");
-                        print("4 - Programação");
-                    }catch(e){
-                        print("Ocorreu um erro, por favor, tente novamente!");
-                    }
-                }else{
+                print("O que deseja editar?");
+                print("1 - Nome");
+                print("2 - Data");
+                print("3 - Participantes");
+                print("4 - Programação");
+            }
+        }
+    }
+
+    Evento escolherEvento(){
+        Evento evento;
+        while(true){
+            print("Digite o id do evento que deseja editar: ");
+            String? id = stdin.readLineSync();
+            if(id != null && id != ''){
+                try{
+                    int id_int = int.parse(id);
+                    evento = eventos[id_int];
+                    break;
+                }catch(e){
                     print("Ocorreu um erro, por favor, tente novamente!");
                 }
+            }else{
+                print("Ocorreu um erro, por favor, tente novamente!");
             }
-                              
         }
+        return evento;
     }
 
     void deletarEvento(){}
