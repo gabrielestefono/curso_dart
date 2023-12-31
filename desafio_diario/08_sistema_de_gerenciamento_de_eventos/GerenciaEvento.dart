@@ -77,12 +77,36 @@ class GerenciaEvento{
             eventos.forEach((element) { print("Id: ${eventos.indexOf(element)} - Nome: ${element.nome}"); });
             print("Digite o id do evento que deseja editar: ");
             Evento evento = escolherEvento();
+            loop:
             while(true){
                 print("O que deseja editar?");
                 print("1 - Nome");
                 print("2 - Data");
                 print("3 - Participantes");
                 print("4 - Programação");
+                print("5 - Voltar");
+                String? opcao = stdin.readLineSync();
+                if(opcao != null && opcao != ''){
+                    try{
+                        int opcao_int = int.parse(opcao);
+                        switch (opcao_int) {
+                            case 1:
+                                evento.editarNome();
+                            case 2:
+                                evento.editarData();
+                            case 3:
+                                evento.editarParticipantes();
+                            case 4:
+                                evento.editarProgramacao();
+                            case 5:
+                                break loop;
+                            default:
+                                print("Ocorreu um erro, por favor, tente novamente!");
+                        }
+                    }catch(e){
+                        print("Ocorreu um erro, por favor, tente novamente!");
+                    }
+                }
             }
         }
     }
@@ -90,7 +114,6 @@ class GerenciaEvento{
     Evento escolherEvento(){
         Evento evento;
         while(true){
-            print("Digite o id do evento que deseja editar: ");
             String? id = stdin.readLineSync();
             if(id != null && id != ''){
                 try{

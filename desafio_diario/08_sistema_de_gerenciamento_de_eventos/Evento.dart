@@ -71,5 +71,13 @@ class Evento{
         this.programacao.add(programa);
     }
 
+    void editarNome(){}
+
+    void editarData(){}
+
+    void editarParticipantes(){}
+
+    void editarProgramacao(){}
+
     Evento(this.nome, this.data);
 }
