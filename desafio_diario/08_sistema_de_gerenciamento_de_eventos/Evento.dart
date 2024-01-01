@@ -71,13 +71,44 @@ class Evento{
         this.programacao.add(programa);
     }
 
-    void editarNome(){}
+    void editarNome(){
+        print("Digite o novo nome do evento: ");
+        String? nome = stdin.readLineSync();
+        if(nome != null && nome != ''){
+            this.nome = nome;
+            print("Nome alterado com sucesso!");
+        }else{
+            print("Ocorreu um erro, por favor, tente novamente!");
+        }
+    }
 
-    void editarData(){}
+    void editarData(){
+        print("Digite a nova data do evento: ");
+        String? data = stdin.readLineSync();
+        if(data != null && data != ''){
+            this.data = data;
+            print("Data alterada com sucesso!");
+        }else{
+            print("Ocorreu um erro, por favor, tente novamente!");
+        }
+    }
 
     void editarParticipantes(){}
 
     void editarProgramacao(){}
+
+    void detalhes(){
+        print("Nome: ${this.nome}");
+        print("Data: ${this.data}");
+        print("Participantes: ");
+        this.participantes.forEach((element) {
+            print("Nome: ${element.nome} - Email: ${element.email}");
+        });
+        print("Programação: ");
+        this.programacao.forEach((element) {
+            print("Titulo: ${element.titulo} - Horário: ${element.horario} - Descrição: ${element.descricao}");
+        });
+    }
 
     Evento(this.nome, this.data);
 }

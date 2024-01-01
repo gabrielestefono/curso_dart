@@ -7,6 +7,7 @@ void main(){
         print("1 - Criar um novo evento");
         print("2 - Editar um evento");
         print("3 - Deletar um evento");
+        print("4 - Listar eventos");
         GerenciaEvento gerenciador = GerenciaEvento.instance;
         GerenciaEvento.instance.opcoes();
     }

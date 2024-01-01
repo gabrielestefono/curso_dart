@@ -25,6 +25,8 @@ class GerenciaEvento{
                     case 3:
                         deletarEvento();
                         break;
+                    case 4:
+                        listarEventos();
                     default:
                         print("Ocorreu um erro, por favor, tente novamente!");
                 }
@@ -131,4 +133,17 @@ class GerenciaEvento{
     }
 
     void deletarEvento(){}
+
+    void listarEventos(){
+        if(eventos.length == 0){
+            print("Não há eventos para listar!");
+        }else{
+            eventos.forEach((element) {
+            print("Id: ${eventos.indexOf(element)} - Nome: ${element.nome}");
+        });
+        print("Digite o id do evento que deseja ver os detalhes: ");
+        Evento evento = escolherEvento();
+        evento.detalhes();
+        }
+    }
 }
