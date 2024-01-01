@@ -93,7 +93,83 @@ class Evento{
         }
     }
 
-    void editarParticipantes(){}
+    void editarParticipantes(){
+        print("O que deseja fazer?");
+        print("1 - Adicionar participante");
+        print("2 - Editar participante");
+        print("3 - Deletar participante");
+        print("4 - Voltar");
+        String? opcao = stdin.readLineSync();
+        if(opcao != null && opcao != ''){
+            try{
+                int opcao_int = int.parse(opcao);
+                switch (opcao_int) {
+                    case 1:
+                        this.adicionarParticipante();
+                    case 2:
+                        this.editarParticipante();
+                    case 3:
+                        this.deletarParticipante();
+                    case 4:
+                        break;
+                    default:
+                        print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }catch(e){
+                print("Ocorreu um erro, por favor, tente novamente!");
+            }
+        }
+    }
+
+    void editarParticipante(){
+        participantes.forEach((element) { print("Id: ${participantes.indexOf(element)} - Nome: ${element.nome}"); });
+        print("Digite o id do participante que deseja editar: ");
+        Participante participante = escolherParticipante();
+        loop:
+        while(true){
+            print("O que deseja editar?");
+            print("1 - Nome");
+            print("2 - Email");
+            print("3 - Voltar");
+            String? opcao = stdin.readLineSync();
+            if(opcao != null && opcao != ''){
+                try{
+                    int opcao_int = int.parse(opcao);
+                    switch (opcao_int) {
+                        case 1:
+                            participante.editarNome();
+                        case 2:
+                            participante.editarEmail();
+                        case 3:
+                            break loop;
+                        default:
+                            print("Ocorreu um erro, por favor, tente novamente!");
+                    }
+                }catch(e){
+                    print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }
+        }
+    }
+
+    Participante escolherParticipante(){
+        Participante participante;
+        while(true){
+            String? id = stdin.readLineSync();
+            if(id != null && id != ''){
+                try{
+                    int id_int = int.parse(id);
+                    participante = participantes[id_int];
+                    break;
+                }catch(e){
+                    print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }else{
+                print("Ocorreu um erro, por favor, tente novamente!");
+            }
+        }
+        return participante;
+    }
 
     void editarProgramacao(){}
 
