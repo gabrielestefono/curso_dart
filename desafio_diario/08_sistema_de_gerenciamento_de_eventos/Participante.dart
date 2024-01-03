@@ -14,5 +14,15 @@ class Participante{
         }
     }
 
+    void editarEmail(){
+        print("Digite o novo email: ");
+        String? email = stdin.readLineSync();
+        if(email != null && email != ''){
+            this.email = email;
+        }else{
+            print("Ocorreu um erro, por favor, tente novamente!");
+        }
+    }
+
     Participante(this.nome, this.email);
 }

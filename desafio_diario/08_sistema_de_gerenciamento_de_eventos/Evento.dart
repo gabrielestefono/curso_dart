@@ -173,6 +173,8 @@ class Evento{
 
     void editarProgramacao(){}
 
+    void deletarParticipante(){}
+
     void detalhes(){
         print("Nome: ${this.nome}");
         print("Data: ${this.data}");
