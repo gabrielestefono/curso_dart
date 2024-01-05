@@ -171,7 +171,33 @@ class Evento{
         return participante;
     }
 
-    void editarProgramacao(){}
+    void editarProgramacao(){
+        print("O que deseja fazer?");
+        print("1 - Adicionar programação");
+        print("2 - Editar programação");
+        print("3 - Deletar programação");
+        print("4 - Voltar");
+        String? opcao = stdin.readLineSync();
+        if(opcao != null && opcao != ''){
+            try{
+                int opcao_int = int.parse(opcao);
+                switch (opcao_int) {
+                    case 1:
+                        this.adicionarProgramacao();
+                    case 2:
+                        this.editarProgramacaoExistente();
+                    case 3:
+                        this.deletarProgramacao();
+                    case 4:
+                        break;
+                    default:
+                        print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }catch(e){
+                print("Ocorreu um erro, por favor, tente novamente!");
+            }
+        }
+    }
 
     void deletarParticipante(){}
 
