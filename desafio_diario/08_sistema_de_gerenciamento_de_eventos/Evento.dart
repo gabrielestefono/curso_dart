@@ -199,6 +199,40 @@ class Evento{
         }
     }
 
+    void editarProgramacaoExistente(){
+        programacao.forEach((element) { print("Id: ${programacao.indexOf(element)} - Titulo: ${element.titulo}"); });
+        print("Digite o id da programação que deseja editar: ");
+        Programacao programa = escolherProgramacao();
+        loop:
+        while(true){
+            print("O que deseja editar?");
+            print("1 - Titulo");
+            print("2 - Descrição");
+            print("3 - Horário");
+            print("4 - Voltar");
+            String? opcao = stdin.readLineSync();
+            if(opcao != null && opcao != ''){
+                try{
+                    int opcao_int = int.parse(opcao);
+                    switch (opcao_int) {
+                        case 1:
+                            programa.editarTitulo();
+                        case 2:
+                            programa.editarDescricao();
+                        case 3:
+                            programa.editarHorario();
+                        case 4:
+                            break loop;
+                        default:
+                            print("Ocorreu um erro, por favor, tente novamente!");
+                    }
+                }catch(e){
+                    print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }
+        }
+    }
+
     void deletarParticipante(){}
 
     void detalhes(){
