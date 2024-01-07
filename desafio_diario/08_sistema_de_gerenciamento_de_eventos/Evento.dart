@@ -233,6 +233,25 @@ class Evento{
         }
     }
 
+    Programacao escolherProgramacao(){
+        Programacao programa;
+        while(true){
+            String? id = stdin.readLineSync();
+            if(id != null && id != ''){
+                try{
+                    int id_int = int.parse(id);
+                    programa = programacao[id_int];
+                    break;
+                }catch(e){
+                    print("Ocorreu um erro, por favor, tente novamente!");
+                }
+            }else{
+                print("Ocorreu um erro, por favor, tente novamente!");
+            }
+        }
+        return programa;
+    }
+
     void deletarParticipante(){}
 
     void detalhes(){
