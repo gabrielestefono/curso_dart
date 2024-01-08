@@ -9,6 +9,6 @@ void main(){
         print("3 - Deletar um evento");
         print("4 - Listar eventos");
         GerenciaEvento gerenciador = GerenciaEvento.instance;
-        GerenciaEvento.instance.opcoes();
+        gerenciador.opcoes();
     }
 }

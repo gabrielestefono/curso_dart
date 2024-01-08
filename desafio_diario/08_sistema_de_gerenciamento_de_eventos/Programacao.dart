@@ -24,4 +24,26 @@ class Programacao{
             print("Ocorreu um erro, por favor, tente novamente!");
         }
     }
+
+    void editarDescricao(){
+        print("Digite a nova descrição: ");
+        String? descricao = stdin.readLineSync();
+        if(descricao != null && descricao != ''){
+            this.descricao = descricao;
+            print("Descrição editada com sucesso!");
+        }else{
+            print("Ocorreu um erro, por favor, tente novamente!");
+        }
+    }
+
+    void editarHorario(){
+        print("Digite o novo horário: ");
+        String? horario = stdin.readLineSync();
+        if(horario != null && horario != ''){
+            this.horario = horario;
+            print("Horário editado com sucesso!");
+        }else{
+            print("Ocorreu um erro, por favor, tente novamente!");
+        }
+    }
 }

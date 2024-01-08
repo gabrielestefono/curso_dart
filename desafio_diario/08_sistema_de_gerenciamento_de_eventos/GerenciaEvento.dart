@@ -132,7 +132,17 @@ class GerenciaEvento{
         return evento;
     }
 
-    void deletarEvento(){}
+    void deletarEvento(){
+        if(eventos.length == 0){
+            print("Não há eventos para deletar!");
+        }else{
+            eventos.forEach((element) { print("Id: ${eventos.indexOf(element)} - Nome: ${element.nome}"); });
+            print("Digite o id do evento que deseja deletar: ");
+            Evento evento = escolherEvento();
+            eventos.remove(evento);
+            print("Evento deletado com sucesso!");
+        }
+    }
 
     void listarEventos(){
         if(eventos.length == 0){

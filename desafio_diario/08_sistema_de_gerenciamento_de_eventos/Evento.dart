@@ -35,7 +35,7 @@ class Evento{
             print("Digite o horário da programação: ");
             String? horario = stdin.readLineSync();
             if(titulo != null && titulo != '' && descricao != null && descricao != '' && horario != null && horario != ''){
-                this.escolherTipoProgramacao(titulo, horario, descricao);
+                this.escolherTipoProgramacao(titulo, descricao, horario);
                 print("Programação adicionada com sucesso!");
                 break;
             }
@@ -252,7 +252,21 @@ class Evento{
         return programa;
     }
 
-    void deletarParticipante(){}
+    void deletarProgramacao(){
+        programacao.forEach((element) { print("Id: ${programacao.indexOf(element)} - Titulo: ${element.titulo}"); });
+        print("Digite o id da programação que deseja deletar: ");
+        Programacao programa = escolherProgramacao();
+        programacao.remove(programa);
+        print("Programação deletada com sucesso!");
+    }
+
+    void deletarParticipante(){
+        participantes.forEach((element) { print("Id: ${participantes.indexOf(element)} - Nome: ${element.nome}"); });
+        print("Digite o id do participante que deseja deletar: ");
+        Participante participante = escolherParticipante();
+        participantes.remove(participante);
+        print("Participante deletado com sucesso!");
+    }
 
     void detalhes(){
         print("Nome: ${this.nome}");
