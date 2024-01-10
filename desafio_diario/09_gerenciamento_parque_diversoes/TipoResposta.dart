@@ -14,11 +14,13 @@ class TipoResposta{
         }
     }
 
-    int aguardaRespostaInt(String pergunta){
+    int aguardaRespostaInt([String? pergunta = null]){
         String? respostaTemp;
         int? resposta;
         while(true){
-            print(pergunta);
+            if(pergunta != null){
+                print(pergunta);
+            }
             respostaTemp = stdin.readLineSync();
             if(respostaTemp != null && resposta != ''){
                 try{

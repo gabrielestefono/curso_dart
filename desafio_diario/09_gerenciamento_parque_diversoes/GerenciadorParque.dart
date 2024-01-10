@@ -28,10 +28,10 @@ class GerenciadorParque extends TipoResposta{
                 case 2:
                     removerAtracao();
                     break;
-                /*case 3:
+                case 3:
                     editarAtracao();
                     break;
-                case 4:
+                /*case 4:
                     listarAtracoes();
                     break;
                 case 5:
@@ -72,6 +72,42 @@ class GerenciadorParque extends TipoResposta{
             id = aguardaRespostaInt("Digite o id da atração que deseja remover: ");
             atracoes.remove(atracoes[id - 1]);
             print("Atração removida com sucessso!");
+        }
+    }
+
+    void editarAtracao(){
+        if(atracoes.length == 0){
+            print("Não há atrações a se editar.");
+        }else{
+            atracoes.forEach((element) {print("Id: ${atracoes.indexOf(element)}. Nome: ${element.nome}");});
+            int opcao = aguardaRespostaInt("Selecione a atração que deseja editar: ");
+            print("Selecione o que deseja editar?");
+            print("1 - Editar nome");
+            print("2 - Editar capacidade máxima");
+            print("3 - Editar horário de início");
+            print("4 - Editar horário final");
+            print("5 - Voltar");
+            int editar = aguardaRespostaInt();
+            while(true){
+                switch (editar) {
+              case 1:
+                atracoes[opcao].editarNome();
+                break;
+              case 2:
+                atracoes[opcao].editarCapacidadeMaxima();
+                break;
+              case 3:
+                atracoes[opcao].editarHorarioInicio();
+                break;
+              case 4:
+                atracoes[opcao].editarHorarioFinal();
+                break;
+              case 5:
+                break;
+              default:
+                print("Ocorreu um errro, por favor, tente novamente!");
+              }
+            }
         }
     }
 }
