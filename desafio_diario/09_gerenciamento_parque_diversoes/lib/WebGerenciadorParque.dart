@@ -1,7 +1,24 @@
-// ignore: file_names
-import 'dart:html';
+// ignore_for_file: non_constant_identifier_names
+import 'package:parque/Visitante.dart';
+import 'package:parque/components/web_gerenciador_parque/CadastrarAtracao.dart';
+import 'package:parque/components/web_gerenciador_parque/EdicaoAtracao.dart';
+import 'package:parque/components/web_gerenciador_parque/EditarAtracao.dart';
+import 'package:parque/components/web_gerenciador_parque/GerenciadorAtracoes.dart';
+import 'package:parque/components/web_gerenciador_parque/ListarAtracao.dart';
+import 'package:parque/components/web_gerenciador_parque/Opcoes.dart';
+import 'package:parque/components/web_gerenciador_parque/RemoverAtracao.dart';
+import 'package:parque/components/web_gerenciador_parque/RemoverAtracoes.dart';
+import 'package:parque/components/web_gerenciador_visitante/cadastrar_visitante.dart';
+import 'package:parque/components/web_gerenciador_visitante/gerenciador_visitante.dart';
+import 'package:parque/components/web_gerenciador_visitante/listar_visitante_edicao.dart';
+import 'package:parque/components/web_gerenciador_visitante/listar_visitantes.dart';
+import 'package:parque/components/web_gerenciador_visitante/remover_visitante.dart';
+
+import './WebAtracao.dart';
 
 class WebGerenciadorParque{
+    List<WebAtracao> lista_atracoes = [];
+    List<Visitante> lista_visitantes = [];
 
     WebGerenciadorParque._constructor();
 
@@ -9,57 +26,60 @@ class WebGerenciadorParque{
 
     static WebGerenciadorParque get instance => _instance;
 
-    void gerenciarAtracoes(){
-        querySelector('#output')?.innerHtml = '''
-            <div>
-                <h1>Gerenciador de Parque de Diversões</h1>
-                <h2>Escolha uma opção:</h2>
-                <button class="btnCadastrar" id="cadastrarAtracao">Cadastrar</button>
-                <button class="btnListar">Listar</button>
-                <button class="btnEditar">Editar</button>
-                <button class="btnRemover">Remover</button>
-            </div>
-        ''';
-
-        querySelector('#cadastrarAtracao')?.onClick.listen((event){
-            cadastrarAtracao();
-        });
+    void opcoes(){
+        Opcoes();
     }
 
-    void opcoes(){
-        querySelector('#output')?.innerHtml = '''
-            <div>
-                <h1>Gerenciador de Parque de Diversões</h1>
-                <h2>Escolha uma opção:</h2>
-                <button class="btnGerenciar" id="gerenciarAtracoes">Gerenciar Atrações</button>
-                <button class="btnGerenciar">Gerenciar Ingressos</button>
-            </div>
-        ''';
-
-        querySelector('#gerenciarAtracoes')?.onClick.listen((event){
-            gerenciarAtracoes();
-        });
+    void gerenciarAtracoes(){
+        GerenciadorAtracoes();
     }
 
     void cadastrarAtracao(){
-        querySelector('#output')?.innerHtml = '''
-            <div>
-                <h1>Gerenciador de Parque de Diversões</h1>
-                <h2>Insira os dados para a nova atração</h2>
-                <input type="text" placeholder="Nome" id="nomeAtracao">
-                <input type="number" placeholder="Capacidade Máxima" id="capacidadeMaxima">
-                <input type="text" placeholder="Horário de Início" id="horarioInicio">
-                <input type="text" placeholder="Horário de Fim" id="horarioFim">
-                <button class="btnCadastrar" id="cadastrarAtracao">Cadastrar</button>
-            </div>
-        ''';
+        CadastrarAtracao();
+    }
 
-        querySelector('#cadastrarAtracao')?.onClick.listen((event){
-            String? nome = (querySelector('#nomeAtracao') as InputElement).value;
-            String? capacidadeMaxima = (querySelector('#capacidadeMaxima') as InputElement).value;
-            String? horarioInicio = (querySelector('#horarioInicio') as InputElement).value;
-            String? horarioFim = (querySelector('#horarioFim') as InputElement).value;
-        });
+    void listarAtracoes(){
+        ListarAtracao();
+    }
+
+    void editarAtracoes(){
+        EditarAtracao();
+    }
+
+    void editarAtracao(WebAtracao atracao){
+        EdicaoAtracao(atracao);
+    }
+
+    void removerAtracoes(){
+        RemoverAtracoes();
+    }
+
+    void removerAtracao(WebAtracao atracao, List<WebAtracao> lista_atracoes){
+        RemoverAtracao(atracao, lista_atracoes);
+    }
+
+    void gerenciarVisitantes(){
+        GerenciadorVisitante();
+    }
+
+    void cadastrarVisitante(){
+        CadastrarVisitante();
+    }
+
+    void listarVisitantes(){
+        ListarVisitante();
+    }
+
+    void editarVisitante(){
+        ListarVisitanteEdicao();
+    }
+
+    void removerVisitante(){
+        RemoverVisitante();
+    }
+
+    void voltar(){
+        Opcoes();
     }
 
 }
