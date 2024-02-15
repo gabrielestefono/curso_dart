@@ -17,11 +17,73 @@ class PaginaInicial extends StatelessWidget{
           title: const Text('Desafio 10 - Rede de Hoteis'),
         ),
         body: Center(
-          child: Column(children: [
-            ElevatedButton(onPressed: onPressed(), child: const Text("Gerenciador de Hoteis")),
-            ElevatedButton(onPressed: onPressed(), child: const Text("Gerenciador de Quartos")),
-            ElevatedButton(onPressed: onPressed(), child: const Text("Gerenciador de Reservas")),
-            ElevatedButton(onPressed: onPressed(), child: const Text("Gerenciador de Hospedes")),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  minimumSize: MaterialStateProperty.all<Size>(const Size(250, 50)),
+                ),
+                onPressed: onPressed(),
+                child: const Text(
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF)
+                  ),
+                  "Gerenciador de Hoteis"
+                )
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  minimumSize: MaterialStateProperty.all<Size>(const Size(250, 50)),
+                ),
+                onPressed: onPressed(),
+                child: const Text(
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF)
+                  ),
+                  "Gerenciador de Quartos"
+                )
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  minimumSize: MaterialStateProperty.all<Size>(const Size(250, 50)),
+                ),
+                onPressed: onPressed(),
+                child: const Text(
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF)
+                  ),
+                  "Gerenciador de Reservas"
+                )
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  minimumSize: MaterialStateProperty.all<Size>(const Size(250, 50)),
+                ),
+                onPressed: onPressed(),
+                child: const Text(
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF)
+                  ),
+                  "Gerenciador de Hospedes"
+                )
+              ),
+            ),
           ]),
         ),
       ),
